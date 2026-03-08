@@ -3,7 +3,7 @@
     <main>
         <section class="relative h-screen w-full">
             <div class="absolute inset-0">
-                <img src="{{ asset('images/hero-WidariVilla.jpg') }}" class="w-full h-full object-cover" alt="Widari Villa">
+                <img src="{{ asset('images/widari1/1.jpg') }}" class="w-full h-full object-cover" alt="Widari Villa">
             </div>
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative z-10 flex items-center justify-center h-full text-center px-2">
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </section>
-        <section class="bg-[#f4f4f4] py-24">
+        <section class="bg-white py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
                 <h2 class="text-2xl md:text-4xl font-bold font-bree mb-10">
                     What The Villa Widari 1
@@ -28,22 +28,24 @@
                 <p class="max-w-4xl mx-auto text-xl leading-relaxed text-gray-800 mb-16">
                     Widari Villas is one of the most beautiful villas in Ubud, featuring a unique design inspired by traditional wooden Joglo architecture. We have been winning the hearts of our guests by providing exceptional service and a warm atmosphere.
                 </p>
-                <div class="bg-gray-300 h-38 rounded-xl shadow-md">
-                    <img src="" alt="">
+                <div class=" h-80 rounded-xl shadow-md overflow-hidden">
+                    <img src="{{ asset('images/widari1/4.jpg') }}" 
+                         alt=""
+                         class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
-        <section class="bg-[#f4f4f4] py-20">
+        <section class="bg-gray-100 py-20">
             <div class="max-w-6xl mx-auto px-6">
                 <p class="text-gray-600 text-lg tracking-wide text-center">
                     See More
                 </p>
-                <h2 class="text-5xl md:text-6xl font-bree mb-10 text-center">
+                <h2 class="text-2xl md:text-4xl font-bree mb-8 font-bold text-center">
                     Quality Your Time
                 </h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="your-image.jpg" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
+                        <img src="{{ asset('images/widari1/2.jpg') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
                     </div>
                     <div>        
                         <p class="text-gray-700 leading-relaxed text-lg">
@@ -57,7 +59,7 @@
                 </div>
             </div>
         </section>
-        <section class="bg-[#f4f4f4] py-20">
+        <section class="bg-white py-20">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
@@ -69,14 +71,14 @@
                         </p>
                     </div>
                     <div>
-                        <img src="your-image.jpg" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
+                        <img src="{{ asset('images/widari1/3.jpg') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
-                <section class="bg-[#f4f4f4] py-24">
+        <section class="bg-gray-100 py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="text-5xl md:text-6xl font-bree mb-10">
+                <h2 class="text-2xl md:text-4xl font-bold font-bree mb-8">
                     Whats Villa Widari 1 Offers
                 </h2>
                 <p class="max-w-4xl mx-auto text-xl leading-relaxed text-gray-800 mb-10">
@@ -89,47 +91,52 @@
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-gray-100">
+        <section class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-6">
-                <h2 class="text-center text-2xl font-bold mb-8">
+                <h2 class="text-center text-4xl font-bold font-bree mb-8">
                     Gallery
                 </h2>
+        
                 <div class="swiper myGallery rounded-xl overflow-hidden">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="/images/gallery/villa1.jpg" class="w-full h-[420px] object-cover">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="/images/gallery/villa2.jpg" class="w-full h-[420px] object-cover">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="/images/gallery/villa3.jpg" class="w-full h-[420px] object-cover">
-                        </div>
+        
+                        @php
+                            $images = File::files(public_path('images/widari1'));
+                        @endphp
+        
+                        @foreach ($images as $image)
+                            <div class="swiper-slide">
+                                <img src="{{ asset('images/widari1/' . $image->getFilename()) }}" 
+                                     class="w-full h-[480px] object-cover">
+                            </div>
+                        @endforeach
+        
                     </div>
+        
                     <div class="swiper-button-next text-white"></div>
                     <div class="swiper-button-prev text-white"></div>
                 </div>
             </div>
         </section>
-                <section class="py-16 bg-white">
+        <section class="py-16 bg-gray-100">
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
                 <div class="w-full h-[400px] rounded-lg overflow-hidden">
-                    <iframe src="https://www.google.com/maps?q=Ubud,Bali&output=embed" 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.877480280237!2d115.24328457501291!3d-8.511275291530836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d001c696b0b%3A0x92a4b30a6b8f2733!2sWidari%20Villa!5e0!3m2!1sid!2sid!4v1772978206018!5m2!1sid!2sid" 
                         width="100%" 
                         height="100%" 
-                        style="border:0;" 
+                        style="border:0; filter: invert(90%) hue-rotate(180deg);"
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
                 </div>
                 <div>
-                    <h2 class="text-4xl font-bold mb-4">
+                    <h2 class="text-4xl font-bold font-bree mb-1">
                         Our Location
                     </h2>
-                    <p class="text-lg font-semibold mb-6">
+                    <p class="text-lg font-semibold mb-8">
                         Discovery ubud in bali with us
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-gray-800 leading-relaxed">
                         Widari Villas is one of the most beautiful villas in Ubud, featuring a unique 
                         design inspired by traditional wooden Joglo architecture. We have been 
                         winning the hearts of our guests by providing exceptional service and a 
@@ -138,7 +145,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-gray-100">
+        <section class="py-16 bg-white">
             <div class="max-w-5xl mx-auto px-6">
                 <h2 class="text-center text-2xl font-semibold mb-10">
                   In The Area Villa
@@ -191,24 +198,32 @@
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-gray-100">
+        <section class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-6">    
                 <h2 class="text-center text-2xl font-semibold mb-10">
                     Other Villa
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="relative">
-                        <img src="/images/villa1.jpg" class="w-full h-[300px] object-cover rounded-lg">
-                        <div class="absolute bottom-4 left-4 bg-white px-5 py-3 shadow-lg">
-                            <p class="font-semibold">Widari Villa 1</p>
+                        <img src="{{ asset('images/widari2/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                            <p class="font-bold">Widari Villa 2</p>
                             <p class="text-sm text-gray-600">Double Bed</p>
                         </div>
                     </div>
-                    <div>
-                        <img src="/images/villa2.jpg" class="w-full h-[300px] object-cover rounded-lg">
+                    <div class="relative">
+                        <img src="{{ asset('images/widari3/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                            <p class="font-bold">Widari Villa 3</p>
+                            <p class="text-sm text-gray-600">Twin Bed</p>
+                        </div>
                     </div>
-                    <div>
-                        <img src="/images/villa3.jpg" class="w-full h-[300px] object-cover rounded-lg">
+                    <div class="relative">
+                        <img src="{{ asset('images/widari4/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                            <p class="font-bold">Widari Villa 4</p>
+                            <p class="text-sm text-gray-600">Double Bed</p>
+                        </div>
                     </div>
                 </div>    
             </div>
