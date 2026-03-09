@@ -10,7 +10,7 @@
             <a href="/widarivilla1/gallery" class="hover:text-gray-300 transition">Gallery</a>
         </nav>
         <div class="ml-10 font-bree">
-            <a href="#" class="bg-white font-semibold text-black px-6 py-2 rounded-md text-sm hover:bg-gray-200 transition">
+            <a href="/widarivilla1/contact" class="bg-white font-semibold text-black px-6 py-2 rounded-md text-sm hover:bg-gray-200 transition">
                 Contact Us
             </a>
         </div>

@@ -147,10 +147,10 @@
         </section>
         <section class="py-16 bg-white">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-center text-2xl font-semibold mb-10">
+                <h2 class="text-center text-2xl font-bold font-bree mb-10">
                   In The Area Villa
                 </h2>
-                <div class="bg-gray-200 rounded-lg p-8 text-gray-800 leading-relaxed">
+                <div class="bg-[#4B2E1F] rounded-lg p-8 text-white leading-relaxed">
                     <p class="mb-3">
                         ✈️ This villa is located approximately 45 minutes from the Denpasar Airport.
                     </p>
