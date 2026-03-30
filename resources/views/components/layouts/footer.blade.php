@@ -13,10 +13,10 @@
             <div class="font-bree">
                 <h3 class="text-lg font-semibold mb-4">Our Villas</h3>
                 <ul class="space-y-3 text-gray-200">
-                    <li><a href="#" class="hover:text-white">Widari Villa 1</a></li>
-                    <li><a href="#" class="hover:text-white">Widari Villa 2</a></li>
-                    <li><a href="#" class="hover:text-white">Widari Villa 3</a></li>
-                    <li><a href="#" class="hover:text-white">Widari Villa 4</a></li>
+                    <li><a href="/widarivilla1" class="hover:text-white">Widari Villa 1</a></li>
+                    <li><a href="/widarivilla2" class="hover:text-white">Widari Villa 2</a></li>
+                    <li><a href="/widarivilla3" class="hover:text-white">Widari Villa 3</a></li>
+                    <li><a href="/widarivilla4" class="hover:text-white">Widari Villa 4</a></li>
                 </ul>
             </div>
             <div class="font-bree">

@@ -3,7 +3,7 @@
     <main>
         <section class="relative h-screen w-full">
             <div class="absolute inset-0">
-                <img src="{{ asset('images/widari1/1.jpg') }}" class="w-full h-full object-cover" alt="Widari Villa">
+                <img src="{{ asset('images/widari1/1.webp') }}" class="w-full h-full object-cover" alt="Widari Villa">
             </div>
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative z-10 flex items-center justify-center h-full text-center px-2">
@@ -23,13 +23,14 @@
         <section class="bg-white py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
                 <h2 class="text-2xl md:text-4xl font-bold font-bree mb-10">
-                    What The Villa Widari 1
+                    What The Villa
                 </h2>
-                <p class="max-w-4xl mx-auto text-xl leading-relaxed text-gray-800 mb-16">
-                    Widari Villas is one of the most beautiful villas in Ubud, featuring a unique design inspired by traditional wooden Joglo architecture. We have been winning the hearts of our guests by providing exceptional service and a warm atmosphere.
+                <p class="max-w-6xl mx-auto text-xl leading-relaxed text-gray-800 mb-10">
+                    Discover refined comfort at Widari Villa 1, featuring a luxurious high-quality bed and a spacious layout thoughtfully designed for relaxation and style.
+                    Ideally located just moments from the swimming pool and lounge area, the villa offers effortless access to a serene yet inviting atmosphere perfect for a refreshing swim or unwinding with your favorite drink.
                 </p>
                 <div class=" h-80 rounded-xl shadow-md overflow-hidden">
-                    <img src="{{ asset('images/widari1/4.jpg') }}" 
+                    <img src="{{ asset('images/widari1/4.webp') }}" 
                          alt=""
                          class="w-full h-full object-cover">
                 </div>
@@ -41,19 +42,15 @@
                     See More
                 </p>
                 <h2 class="text-2xl md:text-4xl font-bree mb-8 font-bold text-center">
-                    Quality Your Time
+                    Quality Time at Widari Villa 1
                 </h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <img src="{{ asset('images/widari1/2.jpg') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
+                        <img src="{{ asset('images/widari1/2.webp') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
                     </div>
                     <div>        
                         <p class="text-gray-700 leading-relaxed text-lg">
-                            Nestled in the heart of nature, our villa offers the perfect blend of comfort and serenity. 
-                            With elegant design, warm hospitality, and breathtaking surroundings, every corner is crafted 
-                            to create unforgettable experiences. Whether you seek relaxation by the pool, peaceful mornings 
-                            with stunning views, or memorable gatherings with loved ones, this is where every moment 
-                            becomes truly special.
+                            Spend meaningful moments at Widari Villa 1, where tranquility meets comfort. Whether enjoying a quiet morning by the pool or unwinding in a peaceful setting, every moment is designed to help you relax and reconnect.
                         </p>
                     </div>
                 </div>
@@ -63,31 +60,117 @@
             <div class="max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2>
-                            Serices and Experiences
+                        <h2 class="text-2xl md:text-4xl font-bree mb-8 font-bold text-center">
+                            Experiences & Services
                         </h2>
-                        <p class="text-gray-700 leading-relaxed text-lg">
-
-                        </p>
+                    
+                        <div class="space-y-4 text-gray-700 text-lg">
+                        
+                            <!-- Experiences -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                <p>Experiences</p>
+                            </div>
+                        
+                            <!-- Shuttle -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M3 13h18M5 13l2-5h10l2 5"/>
+                                </svg>
+                                <p>Free Shuttle Service</p>
+                            </div>
+                        
+                            <!-- Kitchen -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M4 3h16v18H4z"/>
+                                </svg>
+                                <p>Kitchen Access</p>
+                            </div>
+                        
+                            <!-- Laundry -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M4 4h16v16H4z"/>
+                                </svg>
+                                <p>Laundry Service</p>
+                            </div>
+                        
+                            <!-- Pool -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M2 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+                                </svg>
+                                <p>Swimming Pool Access</p>
+                            </div>
+                        
+                            <!-- Water Heater -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 3v18M8 7c0-2 4-2 4 0s4 2 4 0"/>
+                                </svg>
+                                <p>Water Heater</p>
+                            </div>
+                        
+                            <!-- Mini Bar -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M8 2h8v4H8zM6 6h12v14H6z"/>
+                                </svg>
+                                <p>In-Room Mini Bar</p>
+                            </div>
+                        
+                        </div>
                     </div>
                     <div>
-                        <img src="{{ asset('images/widari1/3.jpg') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
+                        <img src="{{ asset('images/widari1/3.webp') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
         <section class="bg-gray-100 py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="text-2xl md:text-4xl font-bold font-bree mb-8">
-                    Whats Villa Widari 1 Offers
+                
+                <!-- Title -->
+                <h2 class="text-2xl md:text-4xl font-bold font-bree mb-6">
+                    What Widari Villa 1 Offers
                 </h2>
-                <p class="max-w-4xl mx-auto text-xl leading-relaxed text-gray-800 mb-10">
-                    Widari Villas is one of the most beautiful villas in Ubud, featuring a unique design inspired by traditional wooden Joglo architecture. We have been winning the hearts of our guests by providing exceptional service and a warm atmosphere.
+        
+                <!-- Description -->
+                <p class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-700 mb-12">
+                    Experience the charm of Widari Villa 1, inspired by traditional Joglo wooden architecture and surrounded by a warm, peaceful atmosphere. Thoughtfully designed to provide comfort and relaxation, every detail is crafted to make your stay truly memorable.
                 </p>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
+        
+                <!-- Features -->
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+        
+                    <!-- Free Wifi -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-wifi text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Free WiFi</p>
+                    </div>
+        
+                    <!-- Traditional Room -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-house text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Traditional Joglo Style</p>
+                    </div>
+        
+                    <!-- Double Bed -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-bed text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Comfortable Double Bed</p>
+                    </div>
+        
+                    <!-- Cleaning -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-broom text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Daily Room Cleaning</p>
+                    </div>
+        
                 </div>
             </div>
         </section>
@@ -205,21 +288,21 @@
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="relative">
-                        <img src="{{ asset('images/widari2/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
                         <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
                             <p class="font-bold">Widari Villa 2</p>
                             <p class="text-sm text-gray-600">Double Bed</p>
                         </div>
                     </div>
                     <div class="relative">
-                        <img src="{{ asset('images/widari3/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
                         <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
                             <p class="font-bold">Widari Villa 3</p>
                             <p class="text-sm text-gray-600">Twin Bed</p>
                         </div>
                     </div>
                     <div class="relative">
-                        <img src="{{ asset('images/widari4/1.jpg') }}" class="w-full h-[300px] object-cover rounded-lg">
+                        <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
                         <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
                             <p class="font-bold">Widari Villa 4</p>
                             <p class="text-sm text-gray-600">Double Bed</p>

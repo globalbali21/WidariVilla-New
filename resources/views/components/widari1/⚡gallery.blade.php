@@ -2,7 +2,7 @@
     <x-layouts.navbar1/>
     <main>
         <section class="relative h-[320px] w-full">
-            <img src="/images/widari1/4.jpg" class="absolute inset-0 w-full h-full object-cover">
+            <img src="/images/widari1/4.webp" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/50"></div>
             <div class="relative max-w-6xl mx-auto px-6 h-full flex flex-col justify-center text-white">
                 <h1 class="text-5xl font-bold mb-2 font-bree">
@@ -21,13 +21,13 @@
                 <div class="swiper myGallery relative">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="/images/widari1/6.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/6.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/5.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/5.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/4.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/4.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -43,19 +43,19 @@
                 <div class="swiper myGallery relative">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="/images/widari1/3.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/3.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/1.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/1.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/2.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/2.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/8.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/8.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/9.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/9.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
@@ -71,16 +71,16 @@
                 <div class="swiper myGallery relative">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="/images/widari1/10.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/10.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/11.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/11.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/12.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/12.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/13.jpg" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/13.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
