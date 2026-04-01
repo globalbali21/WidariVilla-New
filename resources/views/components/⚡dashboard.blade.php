@@ -1,77 +1,119 @@
 <style>
-    .swiper {
+.swiper {
     width: 100%;
-    }
-    
+}
+.swiper-wrapper {
+    align-items: center;
+}
+/* MOBILE FIRST */
+.swiper-slide {
+    width: 90%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.6;
+    transform: scale(0.9);
+}
+
+@media (min-width: 640px) {
     .swiper-slide {
-        width: 60%;
-        transition: all 0.3s ease;
-        opacity: 0.5;
-        transform: scale(0.85);
+        max-width: 500px;
     }
-    
-    .swiper-slide-active {
-        opacity: 1;
-        transform: scale(1);
+}
+
+@media (min-width: 1024px) {
+    .swiper-slide {
+        max-width: 700px;
     }
-    
-    .swiper-slide-prev,
-    .swiper-slide-next {
-        opacity: 0.7;
-        transform: scale(0.9);
-    }
-    
-    /* blur effect samping */
-    .swiper-slide:not(.swiper-slide-active) img {
-        filter: blur(2px);
-    }
-    
-    /* pagination */
-    .swiper-pagination-bullet {
-        background: #ccc;
-        opacity: 1;
-    }
-    
-    .swiper-pagination-bullet-active {
-        background: #fff;
-    }
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+    opacity: 0.7;
+    transform: scale(0.92);
+}
+
+/* blur lebih ringan */
+.swiper-slide:not(.swiper-slide-active) img {
+    filter: blur(1px);
+}
+
+/* pagination */
+.swiper-pagination-bullet {
+    background: #ccc;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #000;
+}
 </style>
 <main>
     <x-layouts.navbar/>
-    <main>
-        <section class="relative h-screen w-full">
-            <div class="absolute inset-0">
-                <img src="{{ asset('images/hero-WidariVilla.jpg') }}" class="w-full h-full object-cover" alt="Widari Villa">
-            </div>
+    <main class="overflow-hidden">
+        <section x-data="heroSlider()" x-init="start()" class="relative h-screen w-full bg-black">
+        
+            <!-- Single Image (FAST) -->
+            <img :src="images[current]"
+                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                 loading="eager">
+        
+            <!-- Overlay -->
             <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative z-10 flex items-center justify-center h-full text-center px-6">
+        
+            <!-- Content -->
+            <div class="relative z-10 flex items-center justify-center h-full text-center px-6"
+                 x-data="{ show: false }"
+                 x-init="setTimeout(() => show = true, 200)">
+            
                 <div class="text-white font-bree">
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-wide">
+                    
+                    <!-- Title -->
+                    <h1 
+                        x-show="show"
+                        x-transition:enter="transition ease-out duration-500"
+                        x-transition:enter-start="opacity-0 translate-y-10"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="text-4xl md:text-6xl font-bold tracking-wide">
                         Widari Villa
                     </h1>
-                    <p class="text-lg md:text-xl font-light tracking-wide">
-                        Serene Strays for Soulful Journeys
+            
+                    <!-- Subtitle -->
+                    <p 
+                        x-show="show"
+                        x-transition:enter="transition ease-out duration-500 delay-300"
+                        x-transition:enter-start="opacity-0 translate-y-10"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="text-lg md:text-xl font-light tracking-wide mt-2">
+                        Serene Stays for Soulful Journeys
                     </p>
+            
                 </div>
             </div>
         </section>
         <section class="py-20 bg-gray-100">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold font-bree">
+            <div class="text-center sm:mb-12 mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold font-bree">
                     Browser Our Villas
                 </h2>
-                <h3 class="text-lg md:text-xl font-bree text-gray-600">
+                <h3 class="text-lg md:text-xl font-bree text-gray-600 p-2 sm:p-0">
                     Each space is designed to provide a peaceful retreat and an unforgettable stay in the heart of nature.
                 </h3>
             </div>
-            <div class="swiper mySwiper py-10 items-center justify-center">
+            <div class="swiper mySwiper py-10 px-4 md:px-0">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
                     <div class="swiper-slide">
                         <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari1/1.webp') }}" class="w-full h-[500px] object-cover">
+                            <img src="{{ asset('images/widari1/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
                             <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-10 left-0 text-black max-w-md bg-white px-16 py-8">
+                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
+                                        text-black bg-white 
+                                        px-4 py-3 md:px-10 md:py-6 
+                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
                                 <h3 class="text-3xl font-bold font-bree">Widari Villa 1</h3>
                                 <p class="text-sm opacity-80">Double Bed</p>
                             </div>
@@ -80,9 +122,12 @@
                     <!-- Slide 2 -->
                     <div class="swiper-slide">
                         <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-[500px] object-cover">
+                            <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
                             <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-10 left-0 text-black max-w-md bg-white px-16 py-8">
+                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
+                                        text-black bg-white 
+                                        px-4 py-3 md:px-10 md:py-6 
+                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
                                 <h3 class="text-3xl font-bold font-bree">Widari Villa 2</h3>
                                 <p class="text-sm opacity-80">Double Bed</p>
                             </div>
@@ -91,9 +136,12 @@
                     <!-- Slide 3 -->
                     <div class="swiper-slide">
                         <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[500px] object-cover">
+                            <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
                             <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-10 left-0 text-black max-w-md bg-white px-16 py-8">
+                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
+                                        text-black bg-white 
+                                        px-4 py-3 md:px-10 md:py-6 
+                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
                                 <h3 class="text-3xl font-bold font-bree">Widari Villa 3</h3>
                                 <p class="text-sm opacity-80">Twin Bed</p>
                             </div>
@@ -102,17 +150,20 @@
                     <!-- Slide 4 -->
                     <div class="swiper-slide">
                         <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[500px] object-cover">
+                            <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
                             <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-10 left-0 text-black max-w-md bg-white px-16 py-8">
+                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
+                                        text-black bg-white 
+                                        px-4 py-3 md:px-10 md:py-6 
+                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
                                 <h3 class="text-3xl font-bold font-bree">Widari Villa 4</h3>
                                 <p class="text-sm opacity-80">Double Bed</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next hidden md:block"></div>
+                <div class="swiper-button-prev hidden md:block"></div>
                 <div class="swiper-pagination mt-6"></div>
             </div>
         </section>
@@ -121,7 +172,7 @@
                 <h2 class="text-4xl md:text-5xl font-bree font-bold text-center">
                     About Widari Villa
                 </h2>
-                <h3 class="text-2xl md:text-2xl font-bree mb-10 text-center text-gray-600">
+                <h3 class="text-lg md:text-2xl font-bree mb-10 text-center text-gray-600">
                     A beautiful place to enjoy every moment.
                 </h3>
                 <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -129,13 +180,13 @@
                         <img src="{{ asset('images/hero2.webp')}}" alt="front widari villa" class="rounded-xl shadow-xl w-full h-[160%] object-cover">
                     </div>
                     <div>
-                        <p class="text-gray-700 leading-relaxed text-lg text-justify">
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
                             Surrounded by the beauty of verdant rice paddies and a peaceful rural setting, Widari Villa offers a stay that combines warmth, comfort, and the best service.
                         </p>
-                        <p class="text-gray-700 leading-relaxed text-lg text-justify mt-1">
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg text-justify mt-1">
                             Echoing the architecture of an ancient Javanese house with quality wood materials and touches of Ubud's tropical charm, every detail is designed to create an authentic and relaxing atmosphere.
                         </p>
-                        <p class="text-gray-700 leading-relaxed text-lg text-justify mt-1">
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg text-justify mt-1">
                             Amenities such as a swimming pool, kitchen, and a variety of exclusive services are here to ensure every guest feels at home. Experience the serenity of a refreshing Ubud morning and create unforgettable moments with loved ones because at Widari Villa, every visit is a special experience.
                         </p>
                     </div>
@@ -144,13 +195,13 @@
         </section>
         <section class="bg-white py-18">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <p class="text-gray-600 text-lg tracking-wide">
+                <p class="text-gray-600 sm:text-lg text-sm tracking-wide">
                     Make it Easy
                 </p>
-                <h2 class="text-4xl font-bold md:text-6xl font-bree mb-10">
+                <h2 class="text-4xl sm:text-5xl font-bold md:text-6xl font-bree mb-10">
                     Service
                 </h2>
-                <p class="max-w-6xl mx-auto text-lg leading-relaxed text-gray-800 mb-16">
+                <p class="max-w-6xl mx-auto sm:text-lg text-base  leading-relaxed text-gray-800 mb-16">
                     We offer a wide range of services to make your stay even more comfortable and enjoyable. From comprehensive amenities to helpful customer service, we have everything to ensure you truly enjoy your time at Widari Villa, making you feel right at home.
                 </p>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 text-center">
@@ -208,15 +259,24 @@
                 </h2>
             </div>
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="relative w-full max-w-md">
-                    <div class="absolute -bottom-8 -right-8 w-full h-full bg-[#5a3423] rounded-3xl"></div>
-                        <img src="{{ asset('images/widari1/1.webp')}}" alt="Villa Room" class="relative rounded-3xl shadow-lg object-cover w-full">
+                <div class="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto">
+                    <div class="absolute 
+                                -bottom-4 -right-4 
+                                sm:-bottom-6 sm:-right-6 
+                                md:-bottom-8 md:-right-8 
+                                w-full h-full 
+                                bg-[#5a3423] 
+                                rounded-2xl md:rounded-3xl">
+                    </div>
+                    <img src="{{ asset('images/widari1/1.webp')}}" 
+                         alt="Villa Room"
+                         class="relative rounded-2xl md:rounded-3xl shadow-lg object-cover w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[450px]">
                 </div>
                 <div>
-                    <h3 class="text-3xl font-semibold mb-6 font-bree">
+                    <h3 class="sm:text-3xl text-2xl font-semibold mb-6 font-bree">
                         Widari Villa 1
                     </h3>
-                    <p class="text-gray-700 leading-relaxed text-lg mb-8">
+                    <p class="text-gray-700 leading-relaxed sm:text-lg text-base text-justify mb-8">
                         More than just a place to stay, Widari Villa 1 offers direct access to the swimming pool and is conveniently located near the kitchen, ensuring comfort and ease throughout your stay. Thoughtfully designed with complete facilities, every detail is crafted to make you feel at home.
                     </p>
                     <a href="/widarivilla1" class="text-lg font-medium underline hover:text-[#5a3423] transition">
@@ -226,13 +286,13 @@
             </div>
         </section>
         <section class="max-w-6xl mx-auto px-6 py-20 text-center">
-            <p class="text-gray-600 text-lg">
+            <p class="text-gray-600 sm:text-lg text-sm">
                 Discover More
             </p>
-            <h2 class="text-5xl font-bold mb-8 font-bree">
+            <h2 class="sm:text-5xl text-4xl font-bold mb-8 font-bree">
                 Ubud Experience
             </h2>
-            <div class="max-w-6xl mx-auto text-xl leading-relaxed text-gray-800 space-y-4 mb-8">
+            <div class="max-w-6xl mx-auto text-base sm:text-lg leading-relaxed text-gray-800 space-y-4 mb-8">
                 <p>
                     Wake up to the soothing sounds of nature, breathe in the fresh tropical air, and unwind in your own private sanctuary.
                 </p>
@@ -285,13 +345,10 @@
                         Our Location
                     </h2>
                     <p class="text-lg font-semibold mb-10">
-                        Discovery ubud in bali with us
+                        Discover the beauty of Ubud, Bali with us
                     </p>
                     <p class="text-gray-700 leading-relaxed">
-                        Widari Villas is one of the most beautiful villas in Ubud, featuring a unique 
-                        design inspired by traditional wooden Joglo architecture. We have been 
-                        winning the hearts of our guests by providing exceptional service and a 
-                        warm atmosphere.
+                        Widari Villas is a tranquil retreat nestled in the heart of Ubud, designed with the elegance of traditional Joglo architecture. Surrounded by Ubud's signature rice paddy views, we offer the perfect blend of comfort, culture, and tranquility. Experience warm hospitality and unforgettable moments in a setting where every detail is designed for your relaxation.
                     </p>
                 </div>
             </div>
@@ -380,22 +437,43 @@
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
     centeredSlides: true,
+    centeredSlidesBounds: true, // 🔥 INI PENTING
     loop: true,
-    spaceBetween: 30,
+    spaceBetween: 20,
 
     autoplay: {
-        delay: 3000,
+        delay: 4000,
         disableOnInteraction: false,
-    },
-
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
     },
 
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });
+</script>
+<script>
+function heroSlider() {
+    return {
+        current: 0,
+        images: [
+            '/images/hero-WidariVilla.webp',
+            '/images/hero-WidariVilla1.webp',
+            '/images/hero-WidariVilla2.webp',
+            '/images/hero-WidariVilla3.webp',
+            '/images/hero-WidariVilla4.webp',
+            '/images/hero-WidariVilla5.webp',
+        ],
+        start() {
+            setInterval(() => {
+                this.current = (this.current + 1) % this.images.length;
+            }, 3000); 
+        }
+    }
+}
 </script>

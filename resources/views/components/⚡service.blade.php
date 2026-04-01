@@ -3,7 +3,7 @@
     <main>
         <section class="relative h-64 w-full shadow-xl">
             <div class="absolute inset-0">
-                <img src="{{ asset('images/hero-WidariVilla.jpg') }}" class="w-full h-full object-cover" alt="Widari Villa">
+                <img src="{{ asset('/images/hero-WidariVilla.webp') }}" class="w-full h-full object-cover" alt="Widari Villa">
             </div>
             <div class="absolute inset-0 bg-black/40"></div>
             <div class="relative z-10 flex items-end h-full text-center px-30 py-8">

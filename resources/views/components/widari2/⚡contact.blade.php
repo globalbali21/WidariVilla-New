@@ -46,16 +46,41 @@
                 <div>
                     <h2 class="text-xl font-semibold mb-4">Chat With Us</h2>
                     <div class="space-y-6">
-                        <div class="bg-white rounded-lg shadow-md h-20"></div>
-                        <div class="bg-white rounded-lg shadow-md h-20"></div>
+                        <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center space-x-4 bg-white rounded-lg shadow-md h-20 px-6 hover:scale-105 transition">
+                            <div class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-full">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">WhatsApp</p>
+                                <p class="text-sm text-gray-500">+62 81239410158</p>
+                            </div>
+                        </a>        
+                        <a href="mailto:widarivilla@gmail.com" class="flex items-center space-x-4 bg-white rounded-lg shadow-md h-20 px-6 hover:scale-105 transition">
+                            <div class="w-12 h-12 bg-[#5b2d1a] text-white flex items-center justify-center rounded-full">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-sm text-gray-500">widarivilla@gmail.com</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-md p-6">
-                    <h2 class="text-xl font-semibold mb-6">Media sosial</h2>
-                    <div class="grid grid-cols-3 gap-6">
-                        <div class="bg-gray-300 h-20 rounded-lg"></div>
-                        <div class="bg-gray-300 h-20 rounded-lg"></div>
-                        <div class="bg-gray-300 h-20 rounded-lg"></div>
+                    <h2 class="text-xl font-semibold mb-6">Social Media</h2>
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <a href="https://instagram.com/username_kamu" target="_blank" class="flex flex-col items-center justify-center bg-pink-500 text-white h-20 rounded-lg hover:scale-105 transition">
+                           <i class="fa-brands fa-instagram text-xl"></i>
+                            <span class="text-sm font-medium">Instagram</span>
+                        </a>
+                        <a href="https://tiktok.com/@username_kamu" target="_blank" class="flex flex-col items-center justify-center bg-black text-white h-20 rounded-lg hover:scale-105 transition">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                            <span class="text-sm font-medium">TikTok</span>
+                        </a>
+                        <a href="https://facebook.com/username_kamu" target="_blank" class="flex flex-col items-center justify-center bg-blue-600 text-white h-20 rounded-lg hover:scale-105 transition">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                            <span class="text-sm font-medium">Facebook</span>
+                        </a>
                     </div>
                 </div>
             </div>
