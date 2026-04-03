@@ -275,7 +275,7 @@
             <div class="overflow-hidden rounded-3xl shadow-lg">
                 <img src="{{asset('images/ubud.webp')}}" alt="Ubud Rice Field" class="w-full h-[400px] object-cover"/>
             </div>
-            <a href="#" class="mt-12 inline-block px-6 py-3 bg-[#4B2E1F] text-white text-lg font-semibold rounded-lg hover:bg-[#43281a] transition">
+            <a href="https://wa.me/6281215986658" class="mt-12 inline-block px-6 py-3 bg-[#4B2E1F] text-white text-lg font-semibold rounded-lg hover:bg-[#43281a] transition">
                 Consultation For Guide Ubud
             </a>
         </section>
@@ -394,7 +394,7 @@
                             FIND SERENITY IN THE NATURAL WOOD FINISHES AND 
                             SOOTHING TRADITIONAL AMBIANCE.
                         </h2>
-                        <a href="#" class="mt-6 bg-white text-black px-8 py-3 font-semibold shadow hover:bg-gray-200 transition">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=widarivilla@gmail.com" class="mt-6 bg-white text-black px-8 py-3 font-semibold shadow hover:bg-gray-200 transition">
                             Booking Now
                         </a>
                     </div>

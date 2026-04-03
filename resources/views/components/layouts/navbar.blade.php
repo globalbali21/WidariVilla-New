@@ -1,8 +1,21 @@
-<!-- CLOAK STYLE (WAJIB) -->
 <style>
-[x-cloak] { display: none !important; }
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0 !important;
+}
+.goog-te-combo {
+    display: none !important;
+}
+.goog-logo-link {
+    display: none !important;
+}
+.goog-te-gadget {
+    height: 0;
+    overflow: hidden;
+}
 </style>
-
 <header x-data="{ open: false }" class="absolute top-0 left-0 w-full z-50">
     
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
@@ -24,13 +37,37 @@
             <a href="/widarivilla4" class="hover:text-gray-300 transition">Widari villa 4</a>
             <a href="/Services" class="hover:text-gray-300 transition">Service</a>
         </nav>
-
-        <!-- Contact Button (Desktop) -->
-        <div class="hidden md:block font-bree">
+        <div class="hidden md:flex items-center space-x-4 font-bree">
+        
+            <!-- Translate -->
+            <div class="flex space-x-2">
+            
+                <!-- EN -->
+                <button onclick="translateTo('en')" 
+                    class="flex items-center space-x-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-semibold hover:bg-[#5b2d1a] hover:text-white transition">
+            
+                    <img src="https://flagcdn.com/w20/gb.png" class="w-4 h-4 rounded-full">
+                    <span>EN</span>
+            
+                </button>
+            
+                <!-- ID -->
+                <button onclick="translateTo('id')" 
+                    class="flex items-center space-x-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-semibold hover:bg-[#5b2d1a] hover:text-white transition">
+            
+                    <img src="https://flagcdn.com/w20/id.png" class="w-4 h-4 rounded-full">
+                    <span>ID</span>
+            
+                </button>
+            
+            </div>
+        
+            <!-- Contact -->
             <a href="/ContactUs" 
                class="bg-white text-black px-6 py-3 rounded-md text-sm font-medium hover:bg-gray-200 transition">
                 Contact Us
             </a>
+        
         </div>
 
         <!-- Hamburger Button -->
@@ -79,6 +116,25 @@
                     Contact Us
                 </a>
             </div>
+            <div class="flex space-x-3 mt-6">
+                <!-- EN -->
+                <button onclick="translateTo('en')" 
+                    class="flex items-center space-x-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-semibold hover:bg-[#5b2d1a] hover:text-white transition">
+            
+                    <img src="https://flagcdn.com/w20/gb.png" class="w-4 h-4 rounded-full">
+                    <span>EN</span>
+            
+                </button>
+            
+                <!-- ID -->
+                <button onclick="translateTo('id')" 
+                    class="flex items-center space-x-2 px-3 py-1.5 bg-white/80 backdrop-blur rounded-full text-xs font-semibold hover:bg-[#5b2d1a] hover:text-white transition">
+            
+                    <img src="https://flagcdn.com/w20/id.png" class="w-4 h-4 rounded-full">
+                    <span>ID</span>
+            
+                </button>
+            </div>
 
             <!-- Close Button -->
             <button 
@@ -91,3 +147,16 @@
     </div>
 
 </header>
+<script>
+function translateTo(lang) {
+    if (lang === 'en') {
+        // RESET TRANSLATE (balik ke original)
+        document.cookie = "googtrans=/auto/en;path=/";
+        location.reload();
+    } else {
+        // SET ke bahasa lain
+        document.cookie = "googtrans=/auto/" + lang + ";path=/";
+        location.reload();
+    }
+}
+</script>
