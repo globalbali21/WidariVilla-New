@@ -1,33 +1,64 @@
 <main>
     <x-layouts.navbar2/>
     <main>
-        <section class="relative h-screen w-full">
-            <div class="absolute inset-0">
-                <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-full object-cover" alt="Widari Villa">
-            </div>
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative z-10 flex items-center justify-center h-full text-center px-2">
+        <section x-data="heroSlider()" x-init="start()" class="relative h-screen w-full bg-[#5a3423]">
+            <!-- Single Image (FAST) -->
+            <img :src="images[current]"
+                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 "
+                 loading="eager">
+        
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/40"></div>
+        
+            <!-- Content -->
+            <div class="relative z-10 flex items-center justify-center h-full text-center px-6"
+                 x-data="{ show: false }"
+                 x-init="setTimeout(() => show = true, 200)">
+            
                 <div class="text-white font-bree">
-                    <h1 class="text-xl md:text-6xl font-bold tracking-wide">
+                    
+                    <!-- Title -->
+                    <h1 
+                        x-show="show"
+                        x-transition:enter="transition ease-out duration-500"
+                        x-transition:enter-start="opacity-0 translate-y-10"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="text-4xl md:text-6xl font-bold tracking-wide">
                         Widari Villa 2
                     </h1>
-                    <p class="mt-0 text-lg md:text-xl font-light tracking-wide mb-4">
-                        Serene Strays for Soulful Journeys
+            
+                    <!-- Subtitle -->
+                    <p 
+                        x-show="show"
+                        x-transition:enter="transition ease-out duration-500 delay-300"
+                        x-transition:enter-start="opacity-0 translate-y-10"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        class="text-lg md:text-xl font-light tracking-wide mt-2">
+                        Serene Stays for Soulful Journeys
                     </p>
-                    <a href="" class="mt-14 bg-white text-black px-8 py-2 font-semibold shadow hover:bg-gray-200 transition rounded-md">
-                        Book Now
-                    </a>
+            
+                </div>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white text-center">
+
+                    <p class="text-sm tracking-widest mb-2 opacity-80">
+                        SCROLL DOWN
+                    </p>
+                
+                    <!-- garis animasi -->
+                    <div class="w-[1px] h-10 bg-white/50 mx-auto overflow-hidden relative">
+                        <div class="absolute top-0 left-0 w-full h-4 bg-white animate-scroll"></div>
+                    </div>
+                
                 </div>
             </div>
         </section>
         <section class="bg-white py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="text-2xl md:text-4xl font-bold font-bree mb-10">
-                    What The Villa Widari 2
+                <h2 class="text-3xl sm::text-5xl font-bold font-bree mb-10">
+                    What The Widari Villa 2
                 </h2>
-                <p class="max-w-8xl mx-auto text-xl leading-relaxed text-gray-800 mb-16">
-                    Stay in our Widari Villa 2, designed with the charm of traditional Joglo architecture that brings warmth and serenity. Featuring one comfortable double bed, this room is perfect for couples or solo travelers who seek extra space. From your window, enjoy the calming view of lush green rice fields right outside.
-                </p>
+                <p class="max-w-6xl mx-auto text-base sm:text-xl leading-relaxed text-gray-800 mb-16">
+                    Stay at Widari Villa 2, a beautiful villa inspired by traditional Joglo architecture. Warm wooden interiors create a luxurious yet authentic atmosphere, bringing you closer to the essence of Balinese rural life. Featuring a spacious double bed, this villa is perfect for couples or solo travelers seeking comfort and tranquility. Wake up to tranquil views of green rice paddies and enjoy a peaceful getaway surrounded by nature.
                 <div class=" h-80 rounded-xl shadow-md overflow-hidden">
                     <img src="{{ asset('images/widari2/2.webp') }}" 
                          alt=""
@@ -37,10 +68,10 @@
         </section>
         <section class="bg-gray-100 py-20">
             <div class="max-w-6xl mx-auto px-6">
-                <p class="text-gray-600 text-lg tracking-wide text-center">
+                <p class="text-gray-600 text-sm sm:text-lg tracking-wide text-center">
                     See More
                 </p>
-                <h2 class="text-2xl md:text-4xl font-bree mb-8 font-bold text-center">
+                <h2 class="text-3xl sm:text-5xl font-bree mb-8 font-bold text-center">
                     Quality Your Time
                 </h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -48,12 +79,8 @@
                         <img src="{{ asset('images/widari2/3.webp') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
                     </div>
                     <div>        
-                        <p class="text-gray-700 leading-relaxed text-lg">
-                            Nestled in the heart of nature, our villa offers the perfect blend of comfort and serenity. 
-                            With elegant design, warm hospitality, and breathtaking surroundings, every corner is crafted 
-                            to create unforgettable experiences. Whether you seek relaxation by the pool, peaceful mornings 
-                            with stunning views, or memorable gatherings with loved ones, this is where every moment 
-                            becomes truly special.
+                        <p class="text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
+                            Discover a peaceful retreat where traditional Joglo charm meets modern comfort. Spend your days surrounded by nature, unwind in a warm wooden space, and create unforgettable moments in the heart of Ubud.
                         </p>
                     </div>
                 </div>
@@ -63,12 +90,60 @@
             <div class="max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2>
-                            Serices and Experiences
+                        <h2 class="text-3xl sm:text-5xl font-bree mb-8 font-bold text-center">
+                            Experiences & Services
                         </h2>
-                        <p class="text-gray-700 leading-relaxed text-lg">
-
-                        </p>
+                        <div class="space-y-4 text-gray-700 text-lg">
+                            <!-- Experiences -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                <p>Experiences</p>
+                            </div>
+                        
+                            <!-- Shuttle -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M3 13h18M5 13l2-5h10l2 5"/>
+                                </svg>
+                                <p>Free Shuttle Service</p>
+                            </div>
+                        
+                            <!-- Kitchen -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M4 3h16v18H4z"/>
+                                </svg>
+                                <p>Hot & Cold Shower</p>
+                            </div>
+                        
+                            <!-- Laundry -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M4 4h16v16H4z"/>
+                                </svg>
+                                <p>Laundry Service</p>
+                            </div>
+                        
+                            <!-- Water Heater -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M12 3v18M8 7c0-2 4-2 4 0s4 2 4 0"/>
+                                </svg>
+                                <p>Joglo Style</p>
+                            </div>
+                        
+                            <!-- Mini Bar -->
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 text-[#5b2d1a]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M8 2h8v4H8zM6 6h12v14H6z"/>
+                                </svg>
+                                <p>In-Room Mini Bar</p>
+                            </div>
+                        
+                        </div>
                     </div>
                     <div>
                         <img src="{{ asset('images/widari2/4.webp') }}" alt="Widari Villa Pool" class="rounded-2xl shadow-lg w-full object-cover">
@@ -78,22 +153,45 @@
         </section>
         <section class="bg-gray-100 py-24">
             <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="text-2xl md:text-4xl font-bold font-bree mb-8">
-                    Whats Villa Widari 1 Offers
+                <h2 class="text-2xl sm:text-5xl font-bold font-bree mb-8">
+                    Whats Villa Widari 2 Offers
                 </h2>
-                <p class="max-w-4xl mx-auto text-xl leading-relaxed text-gray-800 mb-10">
-                    Widari Villas is one of the most beautiful villas in Ubud, featuring a unique design inspired by traditional wooden Joglo architecture. We have been winning the hearts of our guests by providing exceptional service and a warm atmosphere.
+                <p class="max-w-6xl mx-auto text-base sm:text-lg leading-relaxed text-gray-800 mb-10">
+                    Experience the charm of Widari Villa 2, inspired by traditional Joglo wooden architecture and surrounded by a warm, peaceful atmosphere. Thoughtfully designed to provide comfort and relaxation, every detail is crafted to make your stay truly memorable.
                 </p>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
-                    <div class="bg-gray-300 h-48 rounded-xl shadow-md"></div>
+                <!-- Features -->
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+        
+                    <!-- Free Wifi -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-wifi text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Free WiFi</p>
+                    </div>
+        
+                    <!-- Traditional Room -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-house text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Traditional Joglo Style</p>
+                    </div>
+        
+                    <!-- Double Bed -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-bed text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Comfortable Double Bed</p>
+                    </div>
+        
+                    <!-- Cleaning -->
+                    <div class="bg-white h-48 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center space-y-3 hover:scale-105 hover:shadow-lg transition">
+                        <i class="fa-solid fa-broom text-3xl text-[#5b2d1a]"></i>
+                        <p class="font-medium">Daily Room Cleaning</p>
+                    </div>
+        
                 </div>
             </div>
         </section>
         <section class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-6">
-                <h2 class="text-center text-4xl font-bold font-bree mb-8">
+                <h2 class="text-center text-3xl sm:text-5xl font-bold font-bree mb-8">
                     Gallery
                 </h2>
         
@@ -124,107 +222,159 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.877480280237!2d115.24328457501291!3d-8.511275291530836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d001c696b0b%3A0x92a4b30a6b8f2733!2sWidari%20Villa!5e0!3m2!1sid!2sid!4v1772978206018!5m2!1sid!2sid" 
                         width="100%" 
                         height="100%" 
-                        style="border:0; filter: invert(90%) hue-rotate(180deg);"
+                        style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy">
                     </iframe>
                 </div>
                 <div>
-                    <h2 class="text-4xl font-bold font-bree mb-1">
+                    <h2 class="sm:text-5xl text-4xl font-bree font-bold">
                         Our Location
                     </h2>
-                    <p class="text-lg font-semibold mb-8">
-                        Discovery ubud in bali with us
+                    <p class="sm:text-lg text-base font-semibold mb-10">
+                        Discover the beauty of Ubud, Bali with us
                     </p>
-                    <p class="text-gray-800 leading-relaxed">
-                        Widari Villas is one of the most beautiful villas in Ubud, featuring a unique 
-                        design inspired by traditional wooden Joglo architecture. We have been 
-                        winning the hearts of our guests by providing exceptional service and a 
-                        warm atmosphere.
+                    <p class="text-gray-700 leading-relaxed sm:text-lg text-base text-justify">
+                        Widari Villas is a tranquil retreat nestled in the heart of Ubud, designed with the elegance of traditional Joglo architecture. Surrounded by Ubud's signature rice paddy views, we offer the perfect blend of comfort, culture, and tranquility. Experience warm hospitality and unforgettable moments in a setting where every detail is designed for your relaxation.
                     </p>
                 </div>
             </div>
         </section>
         <section class="py-16 bg-white">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-center text-2xl font-bold font-bree mb-10">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-center text-3xl sm:text-5xl font-bold font-bree mb-10">
                   In The Area Villa
                 </h2>
-                <div class="bg-[#4B2E1F] rounded-lg p-8 text-white leading-relaxed">
+                <div class="bg-[#4B2E1F] rounded-lg p-8 text-white leading-relaxed text-base sm:text-lg">
                     <p class="mb-3">
-                        ✈️ This villa is located approximately 45 minutes from the Denpasar Airport.
+                        <i class="fa-solid fa-plane-departure mr-2"></i>
+                        This villa is located approximately 1 hour from Denpasar Airport.
                     </p>
+
                     <p class="mb-3">
-                        🚗 We can organise transportation from the airport or anywhere else on the island.
+                        <i class="fa-solid fa-van-shuttle mr-2"></i>
+                        We provide shuttle service for guests staying at our villa.
                     </p>
+                    
                     <p class="mb-3">
-                        🏖️ It is common for people to rent scooters in Bingin and we can also organise this for you.
+                        <i class="fa-solid fa-taxi mr-2"></i>
+                        In addition, Gojek and Grab ride-hailing apps are very useful for affordable scooter and taxi services.
                     </p>
+                    
+                    <p class="mb-3">
+                        <i class="fa-solid fa-tree mr-2"></i>
+                        Surrounded by a peaceful village atmosphere with beautiful rice field views, perfect for a relaxing stay away from the crowds.
+                    </p>
+                    
+                    <p class="mb-3">
+                        <i class="fa-solid fa-person-walking mr-2"></i>
+                        Close to jogging and tracking routes where you can enjoy fresh air and natural scenery.
+                    </p>
+                    
+                    <p class="mb-3">
+                        <i class="fa-solid fa-otter mr-2"></i>
+                        Near the famous Monkey Forest, one of Bali’s most iconic natural attractions.
+                    </p>
+                    
+                    <p class="mb-3">
+                        <i class="fa-solid fa-water mr-2"></i>
+                        Easy access to popular adventure activities such as rafting, tubing, and nature tracking experiences.
+                    </p>
+                    
                     <p>
-                        🚕 In addition, Gojek and Grab ride-hailing apps are very useful for getting inexpensive scooters and car taxis.
+                        <i class="fa-solid fa-wind mr-2"></i>
+                        Enjoy cool fresh air, complete privacy, and a calm environment designed for a truly relaxing escape.
                     </p>
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-gray-100">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="bg-[#4B2E1F] p-10 rounded-lg text-white">
-                    <h2 class="text-center text-4xl font-bold font-bree mb-10">
+        <section class="relative py-16">
+            <div class="absolute inset-0">
+                <img src="/images/widari2/14.webp" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div class="relative max-w-5xl mx-auto px-6">
+                <div class="bg-[#4B2E1F]/40 backdrop-blur-md p-10 rounded-lg text-white shadow-xl">
+                    <h2 class="text-center sm:text-5xl text-2xl font-bold mb-10">
                         Booking Villas
                     </h2>
-                    <form class="space-y-6">
+                    <form wire:submit.prevent="submit" class="space-y-6">
                         <div>
-                            <label class="block text-sm font-medium mb-2">Name</label>
-                            <input type="text" class="w-full text-black rounded-md px-4 py-3 border bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+                            <label class="block mb-2">Name</label>
+                            <input type="text" wire:model="name"
+                                class="w-full text-black rounded-md px-4 py-3 bg-white/90">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Email</label>
-                            <input type="email" class="w-full text-black rounded-md px-4 py-3 border bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+                            <label class="block mb-2">Email</label>
+                            <input type="email" wire:model="email"
+                                class="w-full text-black rounded-md px-4 py-3 bg-white/90">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Phone</label>
-                            <input type="text" class="w-full text-black rounded-md px-4 py-3 border bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+                            <label class="block mb-2">Phone</label>
+                            <div class="flex">
+                                <span class="bg-gray-200 px-4 flex items-center text-black rounded-l-md">
+                                    +
+                                </span>
+                                <input type="text"
+                                    wire:model="phone"
+                                    placeholder="628123456789"
+                                    class="w-full text-black rounded-r-md px-4 py-3 bg-white/90">
+                            </div>
+                            <small class="text-white/70">
+                                Gunakan kode negara (contoh: 628..., 1555..., 447...)
+                            </small>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Check In Date</label>
-                            <input type="date" class="w-full rounded-md text-black px-4 py-3 border bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400">
+                            <label class="block mb-2">Check In Date</label>
+                            <input type="date" wire:model="check_in"
+                                class="w-full text-black rounded-md px-4 py-3 bg-white/90">
                         </div>
-                        <div>
-                            <button class="bg-white text-black px-8 py-3 font-semibold text-lg hover:bg-gray-200 transition rounded-md">
-                                Submit
-                            </button>
-                        </div>
+                        <button type="submit" class="bg-white text-black px-8 py-3 font-semibold rounded-md">
+                            <span wire:loading.remove>Submit</span>
+                            <span wire:loading>Sending...</span>
+                        </button>
+                        @if (session()->has('success'))
+                            <div class="bg-green-500/20 p-3 rounded">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>
         </section>
         <section class="py-16 bg-white">
             <div class="max-w-6xl mx-auto px-6">    
-                <h2 class="text-center text-2xl font-semibold mb-10">
+                <h2 class="text-center sm:text-5xl font-bree text-3xl font-bold mb-10">
                     Other Villa
                 </h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="relative">
-                        <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
-                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
-                            <p class="font-bold">Widari Villa 2</p>
-                            <p class="text-sm text-gray-600">Double Bed</p>
+                    <a href="/widarivilla1">
+                        <div class="relative">
+                            <img src="{{ asset('images/widari1/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
+                            <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                                <p class="font-bold">Widari Villa 1</p>
+                                <p class="text-sm text-gray-600">Double Bed</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
-                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
-                            <p class="font-bold">Widari Villa 3</p>
-                            <p class="text-sm text-gray-600">Twin Bed</p>
+                    </a>
+                    <a href="/widarivilla3">
+                        <div class="relative">
+                            <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
+                            <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                                <p class="font-bold">Widari Villa 3</p>
+                                <p class="text-sm text-gray-600">Twin Bed</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
-                        <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
-                            <p class="font-bold">Widari Villa 4</p>
-                            <p class="text-sm text-gray-600">Double Bed</p>
+                    </a>
+                    <a href="/widarivilla4">
+                        <div class="relative">
+                            <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[300px] object-cover rounded-lg">
+                            <div class="absolute bottom-4 bg-white px-8 py-3 shadow-lg font-bree">
+                                <p class="font-bold">Widari Villa 4</p>
+                                <p class="text-sm text-gray-600">Double Bed</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>    
             </div>
         </section>
@@ -238,5 +388,25 @@
                 prevEl: ".swiper-button-prev",
             },
         });
+    </script>
+    <script>
+    function heroSlider() {
+        return {
+            current: 0,
+            images: [
+                '/images/widari2/2.webp',
+                '/images/widari2/5.webp',
+                '/images/widari2/14.webp',
+                '/images/widari2/1.webp',
+                '/images/widari2/3.webp',
+                '/images/widari2/4.webp',
+            ],
+            start() {
+                setInterval(() => {
+                    this.current = (this.current + 1) % this.images.length;
+                }, 3000); 
+            }
+        }
+    }
     </script>
 </main>

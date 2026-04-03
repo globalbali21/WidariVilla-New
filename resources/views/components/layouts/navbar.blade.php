@@ -67,7 +67,7 @@
 
             <!-- Menu -->
             <div class="flex flex-col items-center space-y-6 text-xl">
-
+                <a href="/" @click="open=false">Home</a>
                 <a href="/widarivilla1" @click="open=false">Widari Villa 1</a>
                 <a href="/widarivilla2" @click="open=false">Widari Villa 2</a>
                 <a href="/widarivilla3" @click="open=false">Widari Villa 3</a>

@@ -29,6 +29,12 @@
                         <div class="swiper-slide">
                             <img src="/images/widari2/5.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
+                        <div class="swiper-slide">
+                            <img src="/images/widari2/13.webp" class="w-full h-[250px] object-cover rounded-xl">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/widari2/14.webp" class="w-full h-[250px] object-cover rounded-xl">
+                        </div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>

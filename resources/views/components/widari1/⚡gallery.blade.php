@@ -9,7 +9,7 @@
                     Gallery
                 </h1>
                 <p class="text-md max-w-xl">
-                    Experience the beauty of Widari Villa and traditional Joglo-style atmosphere
+                    Experience the beauty of Widari Villa and traditional Baliness-style atmosphere
                 </p>
             </div>
         </section>
@@ -21,13 +21,19 @@
                 <div class="swiper myGallery relative">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="/images/widari1/6.webp" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/4.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
                             <img src="/images/widari1/5.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                         <div class="swiper-slide">
-                            <img src="/images/widari1/4.webp" class="w-full h-[250px] object-cover rounded-xl">
+                            <img src="/images/widari1/6.webp" class="w-full h-[250px] object-cover rounded-xl">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/widari1/7.webp" class="w-full h-[250px] object-cover rounded-xl">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/widari1/14.webp" class="w-full h-[250px] object-cover rounded-xl">
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>

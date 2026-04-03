@@ -6,9 +6,9 @@
                 <img src="{{ asset('/images/hero-WidariVilla.webp') }}" class="w-full h-full object-cover" alt="Widari Villa">
             </div>
             <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative z-10 flex items-end h-full text-center px-30 py-8">
+            <div class="relative z-10 flex items-end h-full text-left sm:px-30 px-6 py-8">
                 <div class="text-white font-bree justify-end">
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-wide">
+                    <h1 class="text-5xl md:text-6xl font-bold tracking-wide">
                         Contact Us
                     </h1>
                 </div>
@@ -17,49 +17,60 @@
         <section class="py-10 bg-white">
             <div class="max-w-6xl mx-auto px-2 font-bree">
                 <div class="bg-white rounded-xl shadow-md p-10">
-                    
                     <h2 class="text-2xl font-bold mb-2">
                         Plan Your Stay With Us
                     </h2>
-                    <p class="text-lg mb-10">
+                    <p class="sm:text-lg text-base mb-10">
                         Contact our team today to check availability, request special arrangements, or create a memorable experience at Widari Villa.
                     </p>
-        
                     <!-- GRID -->
                     <div class="grid md:grid-cols-2 gap-10">
-        
                         <!-- FORM -->
-                        <form class="space-y-6">
+                        <form wire:submit.prevent="send" class="space-y-6">
                             <div>
                                 <label class="block font-semibold mb-2">Name</label>
-                                <input type="text" class="w-full bg-[#d2b89b] rounded-lg px-4 py-3 outline-none">
+                                <input type="text" wire:model="name"
+                                    class="w-full bg-[#593d1d] rounded-lg px-4 py-3 outline-none text-white">
+                                @error('name') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
-        
                             <div>
                                 <label class="block font-semibold mb-2">Email</label>
-                                <input type="email" class="w-full bg-[#d2b89b] rounded-lg px-4 py-3 outline-none">
+                                <input type="email" wire:model="email"
+                                    class="w-full text-white bg-[#593d1d] rounded-lg px-4 py-3 outline-none">
+                                @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                             </div>
-        
                             <div>
                                 <label class="block font-semibold mb-2">Phone</label>
-                                <input type="text" class="w-full bg-[#d2b89b] rounded-lg px-4 py-3 outline-none">
+                                <div class="flex">
+                                    <span class="bg-[#674721] text-white px-3 flex items-center rounded-l-lg">+</span>
+                                    <input type="text" wire:model="phone"
+                                        placeholder="628123456789"
+                                        class="w-full bg-[#593d1d] rounded-r-lg px-4 py-3 outline-none text-white">
+                                </div>
+                                <small class="text-black">
+                                Use country code (Example: 628..., 1555..., 447...)
+                            </small>
                             </div>
-        
                             <div>
                                 <label class="block font-semibold mb-2">Subject</label>
-                                <input type="text" class="w-full bg-[#d2b89b] rounded-lg px-4 py-3 outline-none">
+                                <input type="text" wire:model="subject"
+                                    class="w-full bg-[#593d1d] rounded-lg px-4 py-3 outline-none text-white">
                             </div>
-        
                             <div>
                                 <label class="block font-semibold mb-2">Message</label>
-                                <textarea rows="4" class="w-full bg-[#d2b89b] rounded-lg px-4 py-3 outline-none"></textarea>
+                                <textarea rows="4" wire:model="message"
+                                    class="w-full bg-[#593d1d] rounded-lg px-4 py-3 outline-none text-white"></textarea>
                             </div>
-        
-                            <button class="bg-[#5b2d1a] text-white px-8 py-3 rounded-lg hover:bg-[#4a2314] transition">
-                                Send Message
+                            <button type="submit" class="bg-[#5b2d1a] text-white px-8 py-3 rounded-lg hover:bg-[#4a2314] transition">
+                                <span wire:loading.remove>Send Message</span>
+                                <span wire:loading>Sending...</span>
                             </button>
+                            @if (session()->has('success'))
+                                <div class="text-green-600">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                         </form>
-        
                         <!-- GOOGLE MAPS -->
                         <div class="w-full h-full">
                             <iframe 
@@ -69,7 +80,6 @@
                                 loading="lazy">
                             </iframe>
                         </div>
-        
                     </div>
                 </div>
             </div>

@@ -22,31 +22,30 @@
             <div class="font-bree">
                 <h3 class="text-lg font-semibold mb-4">Information</h3>
                 <ul class="space-y-3 text-gray-200">
-                    <li><a href="#" class="hover:text-white">About</a></li>
-                    <li><a href="#" class="hover:text-white">Villas</a></li>
-                    <li><a href="#" class="hover:text-white">Ubud Information</a></li>
-                    <li><a href="#" class="hover:text-white">Contact</a></li>
+                    <li><a href="/" class="hover:text-white">About</a></li>
+                    <li><a href="/" class="hover:text-white">Villas</a></li>
+                    <li><a href="/Services" class="hover:text-white">Service</a></li>
+                    <li><a href="/ContactUs" class="hover:text-white">Contact</a></li>
                 </ul>
             </div>
             <div class="font-bree">
                 <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-                <div class="space-y-3 text-gray-200">
-                    <p class="flex items-center gap-2">
-                        ✉️ contact@widarivilla.com
-                    </p>
-                    <p class="flex items-center gap-2">
-                        ✉️ widarivilla@gmail.com
-                    </p>
-                    <p class="flex items-center gap-2">
-                        📞 +62 81215986658
-                    </p>
-                    <p class="flex items-center gap-2">
-                         📞 +62 81239410158
-                    </p>
-                    <p class="flex items-start gap-2">
-                        📍 Kutuh, Sayan, Kecamatan Ubud,<br>
-                        Kabupaten Gianyar, Bali
-                    </p>
+                <div class="space-y-4 text-gray-200 text-sm md:text-base">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-envelope text-white mt-1"></i>
+                        <span>widarivilla@gmail.com</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone text-white mt-1"></i>
+                        <span>+62 812 1598 6658</span>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-white mt-1"></i>
+                        <span>
+                            Kutuh, Sayan, Kecamatan Ubud,<br>
+                            Kabupaten Gianyar, Bali
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

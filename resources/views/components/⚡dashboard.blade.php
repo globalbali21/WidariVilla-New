@@ -1,64 +1,44 @@
 <style>
-.swiper {
-    width: 100%;
-}
-.swiper-wrapper {
-    align-items: center;
-}
-/* MOBILE FIRST */
 .swiper-slide {
-    width: 90%;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0.6;
     transform: scale(0.9);
+    transition: all 0.5s ease;
 }
 
-@media (min-width: 640px) {
-    .swiper-slide {
-        max-width: 500px;
-    }
+/* image overlay gelap */
+.overlay {
+    background: rgba(0,0,0,0.6);
 }
 
-@media (min-width: 1024px) {
-    .swiper-slide {
-        max-width: 700px;
-    }
+/* content hidden */
+.content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
 }
 
+/* ACTIVE SLIDE */
 .swiper-slide-active {
-    opacity: 1;
     transform: scale(1);
 }
 
-.swiper-slide-prev,
-.swiper-slide-next {
-    opacity: 0.7;
-    transform: scale(0.92);
+/* overlay lebih terang */
+.swiper-slide-active .overlay {
+    background: rgba(0,0,0,0.2);
 }
 
-/* blur lebih ringan */
-.swiper-slide:not(.swiper-slide-active) img {
-    filter: blur(1px);
-}
-
-/* pagination */
-.swiper-pagination-bullet {
-    background: #ccc;
+/* tampilkan deskripsi */
+.swiper-slide-active .content {
     opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-    background: #000;
+    transform: translateY(0);
 }
 </style>
 <main>
     <x-layouts.navbar/>
     <main class="overflow-hidden">
-        <section x-data="heroSlider()" x-init="start()" class="relative h-screen w-full bg-black">
-        
+        <section x-data="heroSlider()" x-init="start()" class="relative h-screen w-full bg-[#5a3423]">
             <!-- Single Image (FAST) -->
             <img :src="images[current]"
-                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 "
                  loading="eager">
         
             <!-- Overlay -->
@@ -92,6 +72,18 @@
                     </p>
             
                 </div>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-white text-center">
+
+                    <p class="text-sm tracking-widest mb-2 opacity-80">
+                        SCROLL DOWN
+                    </p>
+                
+                    <!-- garis animasi -->
+                    <div class="w-[1px] h-10 bg-white/50 mx-auto overflow-hidden relative">
+                        <div class="absolute top-0 left-0 w-full h-4 bg-white animate-scroll"></div>
+                    </div>
+                
+                </div>
             </div>
         </section>
         <section class="py-20 bg-gray-100">
@@ -103,67 +95,47 @@
                     Each space is designed to provide a peaceful retreat and an unforgettable stay in the heart of nature.
                 </h3>
             </div>
-            <div class="swiper mySwiper py-10 px-4 md:px-0">
+        
+            <div class="swiper mySwiper py-10 px-4">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
+        
+                    <!-- Slide -->
+                    @foreach (['widari1','widari2','widari3','widari4'] as $i => $villa)
+                    <div class="swiper-slide p-2">
                         <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari1/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
-                            <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
+        
+                            <img src="{{ asset('images/'.$villa.'/1.webp') }}"
+                                class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover transition-all duration-500">
+        
+                            <!-- overlay -->
+                            <div class="overlay absolute inset-0 transition-all duration-500"></div>
+        
+                            <!-- content -->
+                            <div class="content absolute bottom-4 left-4 md:bottom-10 md:left-0 
                                         text-black bg-white 
                                         px-4 py-3 md:px-10 md:py-6 
-                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
-                                <h3 class="text-3xl font-bold font-bree">Widari Villa 1</h3>
-                                <p class="text-sm opacity-80">Double Bed</p>
+                                        max-w-[90%] md:max-w-md 
+                                        rounded-lg md:rounded-none">
+        
+                                <h3 class="text-3xl font-bold font-bree">
+                                    Widari Villa {{ $i + 1 }}
+                                </h3>
+                                <p class="text-sm opacity-80">
+                                    {{ $i == 2 ? 'Twin Bed' : 'Double Bed' }}
+                                </p>
                             </div>
+        
                         </div>
                     </div>
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari2/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
-                            <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
-                                        text-black bg-white 
-                                        px-4 py-3 md:px-10 md:py-6 
-                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
-                                <h3 class="text-3xl font-bold font-bree">Widari Villa 2</h3>
-                                <p class="text-sm opacity-80">Double Bed</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari3/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
-                            <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
-                                        text-black bg-white 
-                                        px-4 py-3 md:px-10 md:py-6 
-                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
-                                <h3 class="text-3xl font-bold font-bree">Widari Villa 3</h3>
-                                <p class="text-sm opacity-80">Twin Bed</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="swiper-slide">
-                        <div class="relative rounded-2xl overflow-hidden">
-                            <img src="{{ asset('images/widari4/1.webp') }}" class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover">
-                            <div class="absolute inset-0 bg-black/40"></div>
-                            <div class="absolute bottom-4 left-4 md:bottom-10 md:left-0 
-                                        text-black bg-white 
-                                        px-4 py-3 md:px-10 md:py-6 
-                                        max-w-[90%] md:max-w-md rounded-lg md:rounded-none">
-                                <h3 class="text-3xl font-bold font-bree">Widari Villa 4</h3>
-                                <p class="text-sm opacity-80">Double Bed</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+        
                 </div>
+        
+                <!-- navigation -->
                 <div class="swiper-button-next hidden md:block"></div>
                 <div class="swiper-button-prev hidden md:block"></div>
+        
+                <!-- pagination -->
                 <div class="swiper-pagination mt-6"></div>
             </div>
         </section>
@@ -251,7 +223,7 @@
         </section>
         <section class="max-w-6xl mx-auto py-20 px-6">
             <div class="text-center mb-16">
-                <p class="text-gray-500 text-lg">
+                <p class="text-gray-500 text-sm sm:text-lg">
                     More Than a Stay, It’s a Memory
                 </p>
                 <h2 class="text-4xl md:text-5xl font-bold font-bree">
@@ -309,10 +281,10 @@
         </section>
         <section class="bg-white py-16">
             <div class="max-w-6xl mx-auto text-center">
-                <p class="text-lg text-gray-600">
+                <p class="sm:text-lg text-sm text-gray-600">
                     Follow Us
                 </p>
-                <h2 class="text-5xl font-bold font-bree mb-10">
+                <h2 class="sm:text-5xl text-4xl font-bold font-bree mb-10">
                     Dairy Widari Villa
                 </h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6 px-6">
@@ -341,13 +313,13 @@
                     </iframe>
                 </div>
                 <div>
-                    <h2 class="text-5xl font-bree font-bold">
+                    <h2 class="sm:text-5xl text-4xl font-bree font-bold">
                         Our Location
                     </h2>
-                    <p class="text-lg font-semibold mb-10">
+                    <p class="sm:text-lg text-base font-semibold mb-10">
                         Discover the beauty of Ubud, Bali with us
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-gray-700 leading-relaxed sm:text-lg text-base text-justify">
                         Widari Villas is a tranquil retreat nestled in the heart of Ubud, designed with the elegance of traditional Joglo architecture. Surrounded by Ubud's signature rice paddy views, we offer the perfect blend of comfort, culture, and tranquility. Experience warm hospitality and unforgettable moments in a setting where every detail is designed for your relaxation.
                     </p>
                 </div>
@@ -355,8 +327,16 @@
         </section>
         <section class="py-20 bg-gray-100">
             <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+                <div class="flex flex-col items-center justify-center md:justify-center">
+                    <h2 class="sm:text-5xl text-4xl font-bold font-bree">
+                        FAQ
+                    </h2>
+                    <p class="sm:text-xl text-base font-semibold">
+                        Frequently Asked Questions
+                    </p>
+                </div>
                 <div class="space-y-4">
-                    <div class="bg-white rounded-lg shadow">
+                    <div class="bg-white rounded-lg shadow sm:text-lg text-base">
                         <button class="w-full text-left p-5 font-semibold flex justify-between items-center faq-btn">
                             What time is check-in and check-out?
                             <span>+</span>
@@ -402,14 +382,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center md:justify-center">
-                    <h2 class="text-5xl font-bold font-bree">
-                        FAQ
-                    </h2>
-                    <p class="text-xl font-semibold">
-                        Frequently Asked Questions
-                    </p>
-                </div>
             </div>
         </section>
         <section class="py-16 bg-white">
@@ -418,7 +390,7 @@
                     <img src="{{ asset('images/hero3.webp')}}" class="w-full h-[260px] object-cover">
                     <div class="absolute inset-0 bg-black/40"></div>
                     <div class="absolute inset-0 flex flex-col justify-center items-start px-10">
-                        <h2 class="text-white text-2xl md:text-3xl font-bold leading-snug max-w-xl">
+                        <h2 class="text-white text-xl sm:text-3xl font-bold leading-snug max-w-xl">
                             FIND SERENITY IN THE NATURAL WOOD FINISHES AND 
                             SOOTHING TRADITIONAL AMBIANCE.
                         </h2>
@@ -434,16 +406,28 @@
 <script async src="//www.instagram.com/embed.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+const wrapper = document.querySelector('.swiper-wrapper');
+const slides = document.querySelectorAll('.swiper-slide');
+
+if (slides.length % 2 === 0) {
+    wrapper.appendChild(slides[0].cloneNode(true));
+}
 const swiper = new Swiper(".mySwiper", {
-    slidesPerView: "auto",
-    centeredSlides: true,
-    centeredSlidesBounds: true, // 🔥 INI PENTING
     loop: true,
-    spaceBetween: 20,
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 25,
+    grabCursor: true,
+    speed: 800,
 
     autoplay: {
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
 
     pagination: {
@@ -451,9 +435,23 @@ const swiper = new Swiper(".mySwiper", {
         clickable: true,
     },
 
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 12,
+        },
+        768: {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+        },
+        1024: {
+            slidesPerView: 1.6,
+            spaceBetween: 20,
+        },
+        1280: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+        },
     },
 });
 </script>
