@@ -285,19 +285,49 @@
                     Follow Us
                 </p>
                 <h2 class="sm:text-5xl text-4xl font-bold font-bree mb-10">
-                    Dairy Widari Villa
+                    Diary Widari Villa
                 </h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 px-6">
-                    <a href="https://www.instagram.com/reel/DUsYcmOEpHD/" target="_blank">
-                        <video autoplay muted loop playsinline class="w-full h-40 object-cover rounded-xl hover:opacity-80 transition">
-                            <source src="{{ asset('videos/reel1.mp4') }}" type="video/mp4">
-                        </video>
-                    </a>
-                    <div class="bg-gray-300 h-40"></div>
-                    <div class="bg-gray-300 h-40"></div>
-                    <div class="bg-gray-300 h-40"></div>
-                    <div class="bg-gray-300 h-40"></div>
-                    <div class="bg-gray-300 h-40"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6 max-w-8xl mx-auto">
+                    <!-- Item -->
+                    <div class="relative group">
+                        <img src="/images/jogging.webp" class="w-full aspect-square object-cover rounded-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
+                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
+                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
+                                Jogging track surrounded by lush rice fields
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <img src="/images/kitchen.webp" class="w-full aspect-square object-cover rounded-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
+                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
+                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
+                                Cozy public kitchen area for shared moments
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <img src="/images/spa.jpg" class="w-full aspect-square object-cover rounded-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
+                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
+                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
+                                In-villa spa service for total relaxation
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item -->
+                    <div class="relative group">
+                        <img src="/images/laundry.webp" class="w-full aspect-square object-cover rounded-xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
+                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
+                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
+                                Convenient laundry service available anytime
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

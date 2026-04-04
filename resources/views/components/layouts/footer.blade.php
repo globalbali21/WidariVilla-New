@@ -29,7 +29,7 @@
                 </ul>
             </div>
             <div class="font-bree">
-                <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                <h3 class="font-bold mb-4">Contact Us</h3>
                 <div class="space-y-4 text-gray-200 text-sm md:text-base">
                     <div class="flex items-start gap-3">
                         <i class="fa-solid fa-envelope text-white mt-1"></i>

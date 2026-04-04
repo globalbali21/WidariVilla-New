@@ -30,7 +30,7 @@ body {
         </div>
 
         <!-- Desktop Menu -->
-        <nav class="hidden md:flex space-x-8 text-white text-sm items-center font-bree">
+        <nav class="hidden md:flex space-x-2 sm:space-x-8 text-white text-sm items-center font-bree">
             <a href="/widarivilla1" class="hover:text-gray-300 transition">Widari villa 1</a>
             <a href="/widarivilla2" class="hover:text-gray-300 transition">Widari villa 2</a>
             <a href="/widarivilla3" class="hover:text-gray-300 transition">Widari villa 3</a>
