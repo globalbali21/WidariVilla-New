@@ -87,18 +87,32 @@
             </div>
         </section>
         <section class="py-20 bg-gray-100">
+        
+            <!-- TITLE -->
             <div class="text-center sm:mb-12 mb-6">
                 <h2 class="text-4xl md:text-5xl font-bold font-bree">
-                    Browser Our Villas
+                    Browse Our Villas
                 </h2>
                 <h3 class="text-lg md:text-xl font-bree text-gray-600 p-2 sm:p-0">
                     Each space is designed to provide a peaceful retreat and an unforgettable stay in the heart of nature.
                 </h3>
             </div>
         
+            <!-- DATA -->
+            @php
+            $villas = [
+                ['name' => 'widari1', 'image' => '4.webp', 'bed' => 'Double Bed'],
+                ['name' => 'widari2', 'image' => '2.webp', 'bed' => 'Double Bed'],
+                ['name' => 'widari3', 'image' => '13.webp', 'bed' => 'Twin Bed'],
+                ['name' => 'widari4', 'image' => '6.webp', 'bed' => 'Double Bed'],
+            ];
+            @endphp
+        
+            <!-- SWIPER -->
             <div class="swiper mySwiper py-10 px-4">
                 <div class="swiper-wrapper">
         
+<<<<<<< HEAD
 @foreach (['widari1','widari2','widari3','widari4'] as $i => $villa)
 <div class="swiper-slide p-2 {{ $i == 0 ? 'hidden sm:block' : '' }}">
     <div class="relative rounded-2xl overflow-hidden">
@@ -127,15 +141,82 @@
     </div>
 </div>
 @endforeach        
+=======
+                    @foreach ($villas as $i => $villa)
+                    <div class="swiper-slide px-2">
+        
+                        <!-- LINK -->
+                        <a href="{{ url('/villa/'.$villa['name']) }}" class="block group">
+        
+                            <!-- CARD -->
+                            <div class="relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition duration-500">
+        
+                                <!-- 🔥 BADGE KHUSUS WIDARI 1 -->
+                                @if($villa['name'] == 'widari1')
+                                <div class="absolute top-4 left-4 z-10 bg-[#5b2d1a] text-white px-3 py-1 rounded-full text-xs shadow">
+                                    Best Choice
+                                </div>
+                                @endif
+        
+                                <!-- IMAGE -->
+                                <img src="{{ asset('images/'.$villa['name'].'/'.$villa['image']) }}"
+                                    class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover 
+                                           transition duration-700 group-hover:scale-110">
+        
+                                <!-- OVERLAY -->
+                                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-500"></div>
+        
+                                <!-- CONTENT -->
+                                <div class="absolute bottom-7 left-0 md:bottom-6 md:left-0
+                                            bg-white text-black
+                                            px-6 py-5 md:px-10 md:py-6
+                                            rounded-br-lg rounded-tr-lg shadow-md max-w-[85%]
+                                            transform transition duration-500
+                                            group-hover:-translate-y-2">
+        
+                                    <h3 class="text-2xl md:text-3xl font-bold font-bree">
+                                        Widari Villa {{ $i + 1 }}
+                                    </h3>
+        
+                                    <p class="text-sm opacity-80">
+                                        {{ $villa['bed'] }}
+                                    </p>
+                                </div>
+        
+                                <!-- 🔥 SPECIAL EFFECT (WIDARI 1 ONLY) -->
+                                @if($villa['name'] == 'widari1')
+                                <div class="absolute inset-0 flex items-center justify-center
+                                            opacity-0 group-hover:opacity-100
+                                            transition duration-500">
+        
+                                    <div class="bg-white/90 backdrop-blur px-6 py-3 rounded-full shadow-lg
+                                                transform scale-90 group-hover:scale-100 transition duration-500">
+        
+                                        <span class="font-semibold text-[#5b2d1a]">
+                                            View Best Villa
+                                        </span>
+                                    </div>
+                                </div>
+                                @endif
+        
+                            </div>
+        
+                        </a>
+        
+                    </div>
+                    @endforeach
+        
+>>>>>>> acdef906a2a5069a31760d3f3d3752fe83a98b21
                 </div>
         
-                <!-- navigation -->
+                <!-- NAVIGATION -->
                 <div class="swiper-button-next hidden md:block"></div>
                 <div class="swiper-button-prev hidden md:block"></div>
         
-                <!-- pagination -->
+                <!-- PAGINATION -->
                 <div class="swiper-pagination mt-6"></div>
             </div>
+        
         </section>
         <section class="bg-[#f4f4f4] py-20">
             <div class="max-w-6xl mx-auto px-6">
