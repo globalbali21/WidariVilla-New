@@ -9,6 +9,6 @@ class Service extends Component
 
     public function render()
     {
-        return view('components.⚡Service');
+        return view('components.⚡service');
     }
 }

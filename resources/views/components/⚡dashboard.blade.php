@@ -99,36 +99,34 @@
             <div class="swiper mySwiper py-10 px-4">
                 <div class="swiper-wrapper">
         
-                    <!-- Slide -->
-                    @foreach (['widari1','widari2','widari3','widari4'] as $i => $villa)
-                    <div class="swiper-slide p-2">
-                        <div class="relative rounded-2xl overflow-hidden">
-        
-                            <img src="{{ asset('images/'.$villa.'/1.webp') }}"
-                                class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover transition-all duration-500">
-        
-                            <!-- overlay -->
-                            <div class="overlay absolute inset-0 transition-all duration-500"></div>
-        
-                            <!-- content -->
-                            <div class="content absolute bottom-4 left-4 md:bottom-10 md:left-0 
-                                        text-black bg-white 
-                                        px-4 py-3 md:px-10 md:py-6 
-                                        max-w-[90%] md:max-w-md 
-                                        rounded-lg md:rounded-none">
-        
-                                <h3 class="text-3xl font-bold font-bree">
-                                    Widari Villa {{ $i + 1 }}
-                                </h3>
-                                <p class="text-sm opacity-80">
-                                    {{ $i == 2 ? 'Twin Bed' : 'Double Bed' }}
-                                </p>
-                            </div>
-        
-                        </div>
-                    </div>
-                    @endforeach
-        
+@foreach (['widari1','widari2','widari3','widari4'] as $i => $villa)
+<div class="swiper-slide p-2 {{ $i == 0 ? 'hidden sm:block' : '' }}">
+    <div class="relative rounded-2xl overflow-hidden">
+
+        <img src="{{ asset('images/'.$villa.'/1.webp') }}"
+            class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover transition-all duration-500">
+
+        <!-- overlay -->
+        <div class="overlay absolute inset-0 transition-all duration-500"></div>
+
+        <!-- content -->
+        <div class="content absolute bottom-4 left-4 md:bottom-10 md:left-0
+                    text-black bg-white
+                    px-4 py-3 md:px-10 md:py-6
+                    max-w-[90%] md:max-w-md
+                    rounded-lg md:rounded-none">
+
+            <h3 class="text-3xl font-bold font-bree">
+                Widari Villa {{ $i + 1 }}
+            </h3>
+            <p class="text-sm opacity-80">
+                {{ $i == 2 ? 'Twin Bed' : 'Double Bed' }}
+            </p>
+        </div>
+
+    </div>
+</div>
+@endforeach        
                 </div>
         
                 <!-- navigation -->
@@ -273,7 +271,7 @@
                 </p>
             </div>
             <div class="overflow-hidden rounded-3xl shadow-lg">
-                <img src="{{asset('images/ubud.webp')}}" alt="Ubud Rice Field" class="w-full h-[400px] object-cover"/>
+                <img src="{{asset('images/Ubud.webp')}}" alt="Ubud Rice Field" class="w-full h-[400px] object-cover"/>
             </div>
             <a href="https://wa.me/6281215986658" class="mt-12 inline-block px-6 py-3 bg-[#4B2E1F] text-white text-lg font-semibold rounded-lg hover:bg-[#43281a] transition">
                 Consultation For Guide Ubud
