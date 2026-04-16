@@ -101,10 +101,10 @@
             <!-- DATA -->
             @php
             $villas = [
-                ['name' => 'widari1', 'image' => '4.webp', 'bed' => 'Double Bed'],
-                ['name' => 'widari2', 'image' => '2.webp', 'bed' => 'Double Bed'],
-                ['name' => 'widari3', 'image' => '13.webp', 'bed' => 'Twin Bed'],
-                ['name' => 'widari4', 'image' => '6.webp', 'bed' => 'Double Bed'],
+                ['name' => 'widari1', 'image' => '4.webp', 'bed' => 'Double Bed', 'link' => 'widarivilla1'],
+                ['name' => 'widari2', 'image' => '2.webp', 'bed' => 'Double Bed', 'link' => 'widarivilla2'],
+                ['name' => 'widari3', 'image' => '13.webp', 'bed' => 'Twin Bed', 'link' => 'widarivilla3'],
+                ['name' => 'widari4', 'image' => '6.webp', 'bed' => 'Double Bed', 'link' => 'widarivilla4'],
             ];
             @endphp
         
@@ -112,41 +112,11 @@
             <div class="swiper mySwiper py-10 px-4">
                 <div class="swiper-wrapper">
         
-<<<<<<< HEAD
-@foreach (['widari1','widari2','widari3','widari4'] as $i => $villa)
-<div class="swiper-slide p-2 {{ $i == 0 ? 'hidden sm:block' : '' }}">
-    <div class="relative rounded-2xl overflow-hidden">
-
-        <img src="{{ asset('images/'.$villa.'/1.webp') }}"
-            class="w-full h-[400px] sm:h-[350px] md:h-[500px] object-cover transition-all duration-500">
-
-        <!-- overlay -->
-        <div class="overlay absolute inset-0 transition-all duration-500"></div>
-
-        <!-- content -->
-        <div class="content absolute bottom-4 left-4 md:bottom-10 md:left-0
-                    text-black bg-white
-                    px-4 py-3 md:px-10 md:py-6
-                    max-w-[90%] md:max-w-md
-                    rounded-lg md:rounded-none">
-
-            <h3 class="text-3xl font-bold font-bree">
-                Widari Villa {{ $i + 1 }}
-            </h3>
-            <p class="text-sm opacity-80">
-                {{ $i == 2 ? 'Twin Bed' : 'Double Bed' }}
-            </p>
-        </div>
-
-    </div>
-</div>
-@endforeach        
-=======
                     @foreach ($villas as $i => $villa)
                     <div class="swiper-slide px-2">
         
                         <!-- LINK -->
-                        <a href="{{ url('/villa/'.$villa['name']) }}" class="block group">
+                        <a href="{{ url('/'.$villa['link']) }}" class="block group">
         
                             <!-- CARD -->
                             <div class="relative rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition duration-500">
@@ -206,7 +176,6 @@
                     </div>
                     @endforeach
         
->>>>>>> acdef906a2a5069a31760d3f3d3752fe83a98b21
                 </div>
         
                 <!-- NAVIGATION -->
@@ -336,7 +305,7 @@
                 </div>
             </div>
         </section>
-        <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+       <!-- <section class="max-w-6xl mx-auto px-6 py-20 text-center">
             <p class="text-gray-600 sm:text-lg text-sm">
                 Discover More
             </p>
@@ -357,59 +326,7 @@
             <a href="https://wa.me/6281215986658" class="mt-12 inline-block px-6 py-3 bg-[#4B2E1F] text-white text-lg font-semibold rounded-lg hover:bg-[#43281a] transition">
                 Consultation For Guide Ubud
             </a>
-        </section>
-        <section class="bg-white py-16">
-            <div class="max-w-6xl mx-auto text-center">
-                <p class="sm:text-lg text-sm text-gray-600">
-                    Follow Us
-                </p>
-                <h2 class="sm:text-5xl text-4xl font-bold font-bree mb-10">
-                    Diary Widari Villa
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6 max-w-8xl mx-auto">
-                    <!-- Item -->
-                    <div class="relative group">
-                        <img src="/images/jogging.webp" class="w-full aspect-square object-cover rounded-xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
-                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
-                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
-                                Jogging track surrounded by lush rice fields
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item -->
-                    <div class="relative group">
-                        <img src="/images/kitchen.webp" class="w-full aspect-square object-cover rounded-xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
-                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
-                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
-                                Cozy public kitchen area for shared moments
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item -->
-                    <div class="relative group">
-                        <img src="/images/spa.jpg" class="w-full aspect-square object-cover rounded-xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
-                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
-                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
-                                In-villa spa service for total relaxation
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Item -->
-                    <div class="relative group">
-                        <img src="/images/laundry.webp" class="w-full aspect-square object-cover rounded-xl">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-xl"></div>
-                        <div class="absolute bottom-0 left-0 p-3 sm:p-4">
-                            <p class="text-white text-sm sm:text-base font-medium leading-snug">
-                                Convenient laundry service available anytime
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </section> --!>
         <section class="py-16 bg-gray-100">
             <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
                 <div class="w-full h-[400px] rounded-lg overflow-hidden">
